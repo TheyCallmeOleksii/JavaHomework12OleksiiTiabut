@@ -5,7 +5,7 @@ public class Task2 {
 
     public static class FizzBuzz {
         private int n;
-        private volatile int current = 1;
+        private int current = 1;
         private BlockingQueue<String> queue = new LinkedBlockingQueue<>();
 
         public FizzBuzz(int n) {
@@ -19,7 +19,12 @@ public class Task2 {
                     current++;
                     notifyAll();
                 } else {
-                    try { wait(); } catch (InterruptedException e) {}
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
                 }
             }
         }
@@ -31,7 +36,12 @@ public class Task2 {
                     current++;
                     notifyAll();
                 } else {
-                    try { wait(); } catch (InterruptedException e) {}
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
                 }
             }
         }
@@ -43,7 +53,12 @@ public class Task2 {
                     current++;
                     notifyAll();
                 } else {
-                    try { wait(); } catch (InterruptedException e) {}
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
                 }
             }
         }
@@ -55,7 +70,12 @@ public class Task2 {
                     current++;
                     notifyAll();
                 } else {
-                    try { wait(); } catch (InterruptedException e) {}
+                    try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
                 }
             }
         }
